@@ -1,6 +1,16 @@
 version: '16.1'
 
 services:
+  backend: 
+    container_name: backendusermanagement
+    image: backendusermanagement
+    build:
+      context: ./backend      
+      dockerfile: backend.dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:root@db:5432/postgres?schema=public
   db:
     container_name: dbusermanagement
     image: postgres:16.1
