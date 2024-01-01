@@ -1,9 +1,7 @@
 const express = require("express");
 const { PrismaClient } = require("@prisma/client");
-
 const prisma = new PrismaClient();
 const app = express();
-
 //parsing the request body as JSON format
 app.use(express.json());
 
@@ -100,6 +98,6 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
-//start server 
+//start server
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
